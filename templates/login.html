@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center align-items-start mt-3">
+
+    <div class="col-lg-7 col-xl-6 fade-in">
+
+        <div class="glass-card p-3 text-center">
+
+            <!-- Header -->
+
+            <div class="mb-2">
+
+                <div class="bg-primary bg-opacity-25 d-inline-block p-2 rounded-circle mb-2">
+
+                    <i class="fa-solid fa-cloud-moon fa-2x text-white"></i>
+
+                </div>
+
+                <h4 class="fw-bold text-white mb-1">
+                    Welcome Back
+                </h4>
+
+                <p class="text-white-50 small mb-2">
+                    Access your secure Student Cloud workspace
+                </p>
+
+            </div>
+
+            <!-- Login Form -->
+
+            <form method="POST">
+
+                <!-- Email -->
+
+                <div class="mb-2 text-start">
+
+                    <label class="form-label fw-bold text-white small">
+                        Academic Email
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-dark border-secondary text-white">
+
+                            <i class="fa-solid fa-graduation-cap"></i>
+
+                        </span>
+
+                        <input type="email" name="email" class="form-control bg-dark text-white border-secondary"
+                            placeholder="name@college.edu" required>
+
+                    </div>
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="mb-3 text-start">
+
+                    <label class="form-label fw-bold text-white small">
+                        Password
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text bg-dark border-secondary text-white">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                        </span>
+
+                        <input type="password" name="password" class="form-control bg-dark text-white border-secondary"
+                            placeholder="Enter password" required>
+
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+
+                <button type="submit" class="btn btn-primary w-100 py-2 mb-2">
+
+                    <i class="fa-solid fa-right-to-bracket me-2"></i>
+                    Login
+
+                </button>
+
+                <!-- Register -->
+
+                <p class="small text-white-50 mb-0">
+
+                    New student?
+
+                    <a href="{{ url_for('register') }}" class="fw-bold text-info text-decoration-none">
+
+                        Create Account
+
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

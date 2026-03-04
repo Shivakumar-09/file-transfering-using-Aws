@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center pt-5 fade-in">
+    <div class="col-lg-8">
+        <div class="glass-card p-5 border-primary border-opacity-10 text-center">
+
+            <!-- Back Button -->
+            <div class="text-start mb-4">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                    <i class="fa-solid fa-arrow-left me-2"></i>Back to Vault
+                </a>
+            </div>
+
+            <div class="mb-5">
+                <div
+                    class="p-4 bg-primary bg-opacity-10 d-inline-block rounded-circle mb-4 border border-primary border-opacity-20 glow-border">
+                    <i class="fa-solid fa-cloud-arrow-up fa-3x text-primary shadow-sm"></i>
+                </div>
+                <h2 class="fw-bold mb-2">Sync Research Assets</h2>
+                <p class="text-white lead">Your data will be encrypted locally before touching the cloud.</p>
+            </div>
+
+            <form id="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data"
+                class="upload-zone p-5 rounded-5 border-2 border-dashed border-white border-opacity-20 hover-glow position-relative overflow-hidden">
+                <input type="file" name="file" id="file" class="d-none" required onchange="handleFileSelect(this)">
+                <label for="file" class="cursor-pointer w-100 mb-0">
+                    <div class="py-4">
+                        <i class="fa-solid fa-folder-open fa-2x text-primary mb-3"></i>
+                        <h4 class="fw-bold text-white mb-2">Choose research file</h4>
+                        <p class="text-white-50" id="file-label-text">Drag and drop or click to browse your local
+                            artifacts</p>
+                        <div id="file-name-display" class="badge bg-success px-4 py-2 mt-2 d-none shadow-sm">
+                            <i class="fa-solid fa-check-circle me-2"></i><span id="name-span"></span>
+                        </div>
+                    </div>
+                </label>
+            </form>
+
+            <div class="mt-5">
+                <button type="button" onclick="document.getElementById('upload-form').submit()"
+                    class="btn btn-primary btn-lg px-5 shadow-lg w-100" id="submit-btn" disabled>
+                    <i class="fa-solid fa-lock me-2"></i>Encrypt & Execute Sync
+                </button>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center gap-5">
+                <div class="d-flex align-items-center">
+                    <i class="fa-brands fa-aws fa-lg me-2 text-warning"></i>
+                    <span class="x-small fw-bold text-white">AWS S3 SECURE</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-shield-halved fa-lg me-2 text-success"></i>
+                    <span class="x-small fw-bold text-white">AES-256 LOCAL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let isSubmitting = false;
+
+    function handleFileSelect(input) {
+        if (isSubmitting) return;
+
+        const fileName = input.files[0] ? input.files[0].name : "";
+        const display = document.getElementById('file-name-display');
+        const nameSpan = document.getElementById('name-span');
+        const labelText = document.getElementById('file-label-text');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnContent = document.getElementById('btn-content');
+
+        if (fileName) {
+            isSubmitting = true;
+            nameSpan.innerText = fileName;
+            display.classList.remove('d-none');
+            labelText.classList.add('d-none');
+
+            // UI Feedback
+            submitBtn.disabled = false;
+            submitBtn.classList.replace('btn-primary', 'btn-success');
+            btnContent.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin me-2"></i>Starting Secure Sync...';
+
+            // Disable input to prevent changes
+            input.disabled = true;
+
+            // Auto-submit after a brief delay for visual confirmation
+            setTimeout(() => {
+                input.form.submit();
+            }, 800);
+        }
+    }
+</script>
+
+<style>
+    .upload-zone {
+        transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .upload-zone:hover {
+        border-color: var(--primary) !important;
+        background: rgba(99, 102, 241, 0.05);
+        box-shadow: inset 0 0 50px rgba(99, 102, 241, 0.1);
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .border-dashed {
+        border-style: dashed !important;
+    }
+
+    .glow-border {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    }
+
+    .x-small {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
+{% endblock %}

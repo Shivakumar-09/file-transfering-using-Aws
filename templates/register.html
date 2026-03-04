@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center align-items-start mt-3">
+
+    <div class="col-lg-7 col-xl-6">
+
+        <div class="glass-card p-3 text-center">
+
+            <!-- Header -->
+
+            <div class="mb-2">
+
+                <div class="bg-success bg-opacity-25 d-inline-block p-2 rounded-circle mb-2">
+
+                    <i class="fa-solid fa-user-plus fa-2x text-white"></i>
+
+                </div>
+
+                <h4 class="fw-bold text-white mb-1">
+                    Create Student Account
+                </h4>
+
+                <p class="text-white-50 small">
+                    Join the secure student cloud platform
+                </p>
+
+            </div>
+
+            <!-- Register Form -->
+
+            <form method="POST">
+
+                <div class="row g-2">
+
+                    <!-- Full Name -->
+
+                    <div class="col-md-12 text-start">
+
+                        <label class="form-label fw-bold text-white small">
+                            Full Name
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text bg-dark border-secondary text-white">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </span>
+
+                            <input type="text" name="name" class="form-control bg-dark text-white border-secondary"
+                                placeholder="Enter your full name" required>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="col-md-12 text-start">
+
+                        <label class="form-label fw-bold text-white small">
+                            Academic Email
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text bg-dark border-secondary text-white">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                            </span>
+
+                            <input type="email" name="email" class="form-control text-white border-secondary"
+                                placeholder="name@college.edu" required>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="col-md-6 text-start">
+
+                        <label class="form-label fw-bold text-white small">
+                            Password
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text bg-dark border-secondary text-white">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                            </span>
+
+                            <input type="password" name="password"
+                                class="form-control bg-dark text-white border-secondary" placeholder="Enter password"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Confirm Password -->
+
+                    <div class="col-md-6 text-start">
+
+                        <label class="form-label fw-bold text-white small">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text bg-dark border-secondary text-white">
+
+                                <i class="fa-solid fa-shield"></i>
+
+                            </span>
+
+                            <input type="password" name="confirm_password"
+                                class="form-control bg-dark text-white border-secondary" placeholder="Confirm password"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Register Button -->
+
+                <button type="submit" class="btn btn-primary w-100 py-2 mt-3 mb-2">
+
+                    <i class="fa-solid fa-user-plus me-2"></i>
+                    Register Account
+
+                </button>
+
+            </form>
+
+            <!-- Login Link -->
+
+            <p class="small text-white-50 mb-0">
+
+                Already have an account?
+
+                <a href="{{ url_for('login') }}" class="fw-bold text-info text-decoration-none">
+
+                    Login Here
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
