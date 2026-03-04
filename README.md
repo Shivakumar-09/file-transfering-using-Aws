@@ -6,8 +6,11 @@ A premium, student-centric file sharing system built with **Flask** and **AWS (S
 - **Cyber-Academic UI**: High-end glassmorphism design with a "Cloud Fresh" aesthetic.
 - **Hybrid Cloud Security**: Files are encrypted locally using AES-256 before being synced to AWS S3.
 - **Scholar Workspace**: Personalized dashboard with real-time storage metrics and research file registry.
+- **High-Visibility Scholar Status**: Enhanced, glowing "Scholar Account" badge for clear status indication.
+- **Auto-Dismissing Notifications**: Smart 10-second alert timers to keep your workspace clutter-free.
+- **Duplicate Prevention**: Robust "Submission Lock" architecture to ensure clean file records.
 - **Zero-Knowledge Architecture**: Your data is yours. Encryption happens on your machine.
-- **Human-Friendly UX**: Optimized typography and auto-dismissing notifications.
+- **Human-Friendly UX**: Optimized typography (16px base) and responsive layouts.
 
 ## 🛠️ Technology Stack
 - **Frontend**: HTML5, Vanilla CSS (Custom Design System), Bootstrap 5, FontAwesome 6.
