@@ -49,5 +49,4 @@ A premium, student-centric file sharing system built with **Flask** and **AWS (S
 ## 📜 License
 This project is developed for academic research purposes.
 
----
-🚀 *Happy Researching!*
+
